@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D3B0FD1C-7F8D-4EEF-B1B8-A436524347EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{486CD2EF-9DD0-4E0A-BE37-AC1012A48DB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyApp1.Server", "src\BlazorWebAssemblyApp1\Server\BlazorWebAssemblyApp1.Server.csproj", "{621468F5-20E3-437D-A6E6-E770A9BD9A27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyApp1.Client", "src\BlazorWebAssemblyApp1\Client\BlazorWebAssemblyApp1.Client.csproj", "{0D981773-24F6-4B53-B7DF-71A112B04504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyApp1.Shared", "src\BlazorWebAssemblyApp1\Shared\BlazorWebAssemblyApp1.Shared.csproj", "{DE0B2056-DB8A-437A-96B0-809147D4F3A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XunitPlaywright", "test\XunitPlaywright\XunitPlaywright.csproj", "{E2FBF60B-E7A4-431C-94E4-CD878B034720}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{621468F5-20E3-437D-A6E6-E770A9BD9A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621468F5-20E3-437D-A6E6-E770A9BD9A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621468F5-20E3-437D-A6E6-E770A9BD9A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{621468F5-20E3-437D-A6E6-E770A9BD9A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D981773-24F6-4B53-B7DF-71A112B04504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D981773-24F6-4B53-B7DF-71A112B04504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D981773-24F6-4B53-B7DF-71A112B04504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D981773-24F6-4B53-B7DF-71A112B04504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0B2056-DB8A-437A-96B0-809147D4F3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0B2056-DB8A-437A-96B0-809147D4F3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0B2056-DB8A-437A-96B0-809147D4F3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0B2056-DB8A-437A-96B0-809147D4F3A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FBF60B-E7A4-431C-94E4-CD878B034720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FBF60B-E7A4-431C-94E4-CD878B034720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FBF60B-E7A4-431C-94E4-CD878B034720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FBF60B-E7A4-431C-94E4-CD878B034720}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{621468F5-20E3-437D-A6E6-E770A9BD9A27} = {D3B0FD1C-7F8D-4EEF-B1B8-A436524347EE}
+		{0D981773-24F6-4B53-B7DF-71A112B04504} = {D3B0FD1C-7F8D-4EEF-B1B8-A436524347EE}
+		{DE0B2056-DB8A-437A-96B0-809147D4F3A6} = {D3B0FD1C-7F8D-4EEF-B1B8-A436524347EE}
+		{E2FBF60B-E7A4-431C-94E4-CD878B034720} = {486CD2EF-9DD0-4E0A-BE37-AC1012A48DB5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3103C277-414E-4CC6-A91E-DBB80E10483D}
+	EndGlobalSection
+EndGlobal

@@ -35,12 +35,15 @@ public class MyTests
               // Replace or add services if needed.
               builder.ConfigureServices(services =>
               {
-                  // services.AddTransient<....>();
+                  // Is it possible to add a mock'ed authentication service here?
+                  //Something like:
+                  //services.AddAuthentication("Test")
               })
               // Replace or add configuration if needed.
               .ConfigureAppConfiguration((app, conf) =>
               {
                   // conf.AddJsonFile("appsettings.Test.json");
+                  //add a mock'ed user here?
               });
           })
           // Create the host using the CreateDefaultClient method.
@@ -58,6 +61,13 @@ public class MyTests
               await page.GetByRole(AriaRole.Button, new() { NameString = "Click me" }).ClickAsync();
 
               await page.GetByText("Current count: 1").ClickAsync();
+
+
+              //Trouble in test: The following line fails with:
+              await page.WaitForURLAsync($"{url}/fetchdata");
+
+              //Verify the user is authenticated?
+              
           }, Browser.Chromium);
     }
     

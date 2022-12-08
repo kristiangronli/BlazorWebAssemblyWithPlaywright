@@ -1,4 +1,4 @@
-# Blazor WebAssembly With Playwright
+# Blazor WebAssembly With Playwright and authentication Azure B2C
 
 The goal is to be able to test a Blazor Web Assembly project hostet on asp.net core server with azure active directory b2c.
 

@@ -1,74 +1,92 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using FakeAuth;
+//using Microsoft.AspNetCore.Hosting;
+//using Microsoft.Extensions.DependencyInjection;
+//using Microsoft.Playwright;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Security.Claims;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace XunitPlaywright;
+//namespace XunitPlaywright;
 
-[Collection(PlaywrightFixture.PlaywrightCollection)]
-public class MyTests
-{
-    private readonly PlaywrightFixture playwrightFixture;
+//[Collection(PlaywrightFixture.PlaywrightCollection)]
+//public class MyTests
+//{
+//    private readonly PlaywrightFixture playwrightFixture;
 
-    public MyTests(PlaywrightFixture playwrightFixture)
-    {
-        this.playwrightFixture = playwrightFixture;
-    }
+//    public MyTests(PlaywrightFixture playwrightFixture)
+//    {
+//        this.playwrightFixture = playwrightFixture;
+//    }
 
-    [Fact]
-    public async Task MyFirstTest()
-    {
-        var url = "https://localhost:5001";
+//    [Fact]
+//    public async Task MyFirstTest()
+//    {
+//        var url = "https://localhost:5001";
 
-        // Create the host factory with the App class as parameter and the
-        // url we are going to use.
-        using var hostFactory = new WebTestingHostFactory<AssemblyClassLocator>();
-        hostFactory
-          // Override host configuration to mock stuff if required.
-          .WithWebHostBuilder(builder =>
-          {
-              // Setup the url to use.
-              builder.UseUrls(url);
-              // Replace or add services if needed.
-              builder.ConfigureServices(services =>
-              {
-                  // Is it possible to add a mock'ed authentication service here?
-                  //Something like:
-                  //services.AddAuthentication("Test")
-              })
-              // Replace or add configuration if needed.
-              .ConfigureAppConfiguration((app, conf) =>
-              {
-                  // conf.AddJsonFile("appsettings.Test.json");
-                  //add a mock'ed user here?
-              });
-          })
-          // Create the host using the CreateDefaultClient method.
-          .CreateDefaultClient();
+//        // Create the host factory with the App class as parameter and the
+//        // url we are going to use.
+//        using var hostFactory = new WebTestingHostFactory<AssemblyClassLocator>();
+//        hostFactory
+//          // Override host configuration to mock stuff if required.
+//          .WithWebHostBuilder(builder =>
+//          {
+//              // Setup the url to use.
+//              builder.UseUrls(url);
+//              // Replace or add services if needed.
+//              builder.ConfigureServices(services =>
+//              {
+//                  // Is it possible to add a mock'ed authentication service here?
+//                  //Something like:
+//                  //services.AddAuthentication("Test")
 
-        await this.playwrightFixture.GotoPageAsync(
-          url,
-          async (page) =>
-          {
-              await page.WaitForURLAsync($"{url}/");
-              await page.GetByRole(AriaRole.Link, new() { NameString = "Counter" }).ClickAsync();
+//                  services.AddAuthentication().AddFakeAuth((options) =>
+//                  {
+//                      // Adding Claims directly to each request -- for testing / demos
+//                      options.Claims.Add(new Claim(ClaimTypes.Name, ">> Fake User <<"));
+//                      options.Claims.Add(new Claim(ClaimTypes.Role, "Expense_Approver"));
+//                      //options.Claims.Add(new Claim("Approval_Limit", "25.00"));
+//                      //options.Claims.Add(new Claim("Approval_Currency", "USD"));
+//                      //options.Claims.Add(new Claim("Preffered_Location", "Disney Island"));
 
-              await page.GetByText("Current count: 0").ClickAsync();
+//                      //// adding AllowedHosts so we can test from non-localhost scenarios
+//                      //options.AllowedHosts.Add("my-container-host");
+//                      //options.AllowedHosts.Add("my-ci-qa-server");
+//                      //options.AllowedHosts.Add(FakeAuthOptions.DefaultAllowedHost); // localhost
+//                  });
+//              })
+//              // Replace or add configuration if needed.
+//              .ConfigureAppConfiguration((app, conf) =>
+//              {
+//                  // conf.AddJsonFile("appsettings.Test.json");
+//                  //add a mock'ed user here?
+//              });
+//          })
+//          // Create the host using the CreateDefaultClient method.
+//          .CreateDefaultClient();
 
-              await page.GetByRole(AriaRole.Button, new() { NameString = "Click me" }).ClickAsync();
+//        await this.playwrightFixture.GotoPageAsync(
+//          url,
+//          async (page) =>
+//          {
+//              await page.WaitForURLAsync($"{url}/");
+//              await page.GetByRole(AriaRole.Link, new() { NameString = "Counter" }).ClickAsync();
 
-              await page.GetByText("Current count: 1").ClickAsync();
+//              await page.GetByText("Current count: 0").ClickAsync();
+
+//              await page.GetByRole(AriaRole.Button, new() { NameString = "Click me" }).ClickAsync();
+
+//              await page.GetByText("Current count: 1").ClickAsync();
 
 
-              //Trouble in test: The following line fails with:
-              await page.WaitForURLAsync($"{url}/fetchdata");
+//              //Trouble in test: The following line fails with:
+//              await page.WaitForURLAsync($"{url}/fetchdata");
 
-              //Verify the user is authenticated?
+//              //Verify the user is authenticated?
               
-          }, Browser.Chromium);
-    }
+//          }, Browser.Chromium);
+//    }
     
-}
+//}

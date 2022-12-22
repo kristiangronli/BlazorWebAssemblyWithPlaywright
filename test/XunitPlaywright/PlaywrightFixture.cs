@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using XunitPlaywright.FakeAuth;
 
 namespace XunitPlaywright;
+
 
 public class PlaywrightFixture : IAsyncLifetime
 {
@@ -18,12 +20,13 @@ public class PlaywrightFixture : IAsyncLifetime
     public Lazy<Task<IBrowser>> WebkitBrowser { get; private set; }
 
     public const string PlaywrightCollection = nameof(PlaywrightCollection);
+    
 
     public async Task InitializeAsync()
     {
         var launchOptions = new BrowserTypeLaunchOptions
         {
-            Headless = false,
+            Headless = false
         };
 
         // Install Playwright and its dependencies.
@@ -37,6 +40,7 @@ public class PlaywrightFixture : IAsyncLifetime
           Playwright.Firefox.LaunchAsync(launchOptions));
         WebkitBrowser = new Lazy<Task<IBrowser>>(
           Playwright.Webkit.LaunchAsync(launchOptions));
+
     }
 
     public async Task DisposeAsync()
@@ -89,13 +93,14 @@ public class PlaywrightFixture : IAsyncLifetime
     {
         // select and launch the browser.
         var browser = await SelectBrowserAsync(browserType);
-
+        
         // Open a new page with an option to ignore HTTPS errors
         await using var context = await browser.NewContextAsync(
             new BrowserNewContextOptions
             {
                 IgnoreHTTPSErrors = true
             }).ConfigureAwait(false);
+
 
         // Start tracing before creating the page.
         await context.Tracing.StartAsync(new TracingStartOptions()

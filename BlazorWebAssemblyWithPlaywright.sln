@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D3B0FD1C-7F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{486CD2EF-9DD0-4E0A-BE37-AC1012A48DB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyApp1.Server", "src\BlazorWebAssemblyApp1\Server\BlazorWebAssemblyApp1.Server.csproj", "{621468F5-20E3-437D-A6E6-E770A9BD9A27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssemblyApp1.Server", "src\BlazorWebAssemblyApp1\Server\BlazorWebAssemblyApp1.Server.csproj", "{621468F5-20E3-437D-A6E6-E770A9BD9A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyApp1.Client", "src\BlazorWebAssemblyApp1\Client\BlazorWebAssemblyApp1.Client.csproj", "{0D981773-24F6-4B53-B7DF-71A112B04504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssemblyApp1.Client", "src\BlazorWebAssemblyApp1\Client\BlazorWebAssemblyApp1.Client.csproj", "{0D981773-24F6-4B53-B7DF-71A112B04504}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssemblyApp1.Shared", "src\BlazorWebAssemblyApp1\Shared\BlazorWebAssemblyApp1.Shared.csproj", "{DE0B2056-DB8A-437A-96B0-809147D4F3A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssemblyApp1.Shared", "src\BlazorWebAssemblyApp1\Shared\BlazorWebAssemblyApp1.Shared.csproj", "{DE0B2056-DB8A-437A-96B0-809147D4F3A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XunitPlaywright", "test\XunitPlaywright\XunitPlaywright.csproj", "{E2FBF60B-E7A4-431C-94E4-CD878B034720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XunitPlaywright", "test\XunitPlaywright\XunitPlaywright.csproj", "{E2FBF60B-E7A4-431C-94E4-CD878B034720}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "noauth", "noauth", "{0F827EB1-4D0F-4E15-8982-A9E027D7013D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace XunitPlaywright.FakeAuth;
 
 [CollectionDefinition("MyWebApplicationFactory Collection")]
-public class MyWebApplicationFactoryFixture : ICollectionFixture<MyWebApplicationFactory<AssemblyClassLocator>>
+public class MyWebApplicationFactoryFixture : ICollectionFixture<MyWebApplicationFactory<AssemblyClassLocator>>, ICollectionFixture<PlaywrightFixture>
 {
 }

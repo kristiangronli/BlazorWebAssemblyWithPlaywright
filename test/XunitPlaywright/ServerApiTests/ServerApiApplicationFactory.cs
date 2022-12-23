@@ -5,10 +5,11 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Net.Http.Headers;
+using XunitPlaywright.Setup;
 
-namespace XunitPlaywright.FakeAuth;
+namespace XunitPlaywright.ServerApiTests;
 
-public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
+public class ServerApiApplicationFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
 {
     public string url = "https://localhost:5001";
 
@@ -19,7 +20,7 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
             var oldAuthentication = services.SingleOrDefault(d => d.ServiceType == typeof(JwtBearerDefaults));
             services.Remove(oldAuthentication);
             services.AddAuthentication("Test")
-                .AddScheme<AuthenticationSchemeOptions, TestAuthenticationHandler>("Test", AuthenticationOptions => { });            
+                .AddScheme<AuthenticationSchemeOptions, ServerApiAuthenticationHandler>("Test", AuthenticationOptions => { });            
         });
         builder.UseUrls(url);
     }
@@ -47,35 +48,5 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
         // actually just a way to intercept the StopAsync and Dispose
         // call and relay to our HTTP host.
         return new CompositeHost(testHost, host);
-    }
-
-    // Relay the call to both test host and kestrel host.
-    public class CompositeHost : IHost
-    {
-        private readonly IHost testHost;
-        private readonly IHost kestrelHost;
-        public CompositeHost(IHost testHost, IHost kestrelHost)
-        {
-            this.testHost = testHost;
-            this.kestrelHost = kestrelHost;
-        }
-        public IServiceProvider Services => this.testHost.Services;
-        public void Dispose()
-        {
-            this.testHost.Dispose();
-            this.kestrelHost.Dispose();
-        }
-        public async Task StartAsync(
-          CancellationToken cancellationToken = default)
-        {
-            await this.testHost.StartAsync(cancellationToken);
-            await this.kestrelHost.StartAsync(cancellationToken);
-        }
-        public async Task StopAsync(
-          CancellationToken cancellationToken = default)
-        {
-            await this.testHost.StopAsync(cancellationToken);
-            await this.kestrelHost.StopAsync(cancellationToken);
-        }
     }
 }

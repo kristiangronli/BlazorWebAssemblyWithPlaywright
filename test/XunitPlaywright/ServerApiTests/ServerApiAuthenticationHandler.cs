@@ -10,11 +10,11 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
 
-namespace XunitPlaywright.FakeAuth;
+namespace XunitPlaywright.ServerApiTests;
 
-public class TestAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+public class ServerApiAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
 {
-    public TestAuthenticationHandler(IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock) : base(options, logger, encoder, clock)
+    public ServerApiAuthenticationHandler(IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock) : base(options, logger, encoder, clock)
     {
     }
 

@@ -6,9 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using XunitPlaywright.FakeAuth;
 
-namespace XunitPlaywright;
+namespace XunitPlaywright.Setup;
 
 
 public class PlaywrightFixture : IAsyncLifetime
@@ -20,7 +19,7 @@ public class PlaywrightFixture : IAsyncLifetime
     public Lazy<Task<IBrowser>> WebkitBrowser { get; private set; }
 
     public const string PlaywrightCollection = nameof(PlaywrightCollection);
-    
+
 
     public async Task InitializeAsync()
     {
@@ -71,14 +70,14 @@ public class PlaywrightFixture : IAsyncLifetime
 
     private static void InstallPlaywright()
     {
-        var exitCode = Microsoft.Playwright.Program.Main(
+        var exitCode = Program.Main(
           new[] { "install-deps" });
         if (exitCode != 0)
         {
             throw new Exception(
               $"Playwright exited with code {exitCode} on install-deps");
         }
-        exitCode = Microsoft.Playwright.Program.Main(new[] { "install" });
+        exitCode = Program.Main(new[] { "install" });
         if (exitCode != 0)
         {
             throw new Exception(
@@ -93,7 +92,7 @@ public class PlaywrightFixture : IAsyncLifetime
     {
         // select and launch the browser.
         var browser = await SelectBrowserAsync(browserType);
-        
+
         // Open a new page with an option to ignore HTTPS errors
         await using var context = await browser.NewContextAsync(
             new BrowserNewContextOptions
@@ -154,8 +153,7 @@ public class PlaywrightFixture : IAsyncLifetime
     }
 
     [CollectionDefinition(PlaywrightCollection)]
-    public class PlaywrightCollectionDefinition
-          : ICollectionFixture<PlaywrightFixture>
+    public class PlaywrightCollectionDefinition : ICollectionFixture<PlaywrightFixture>
     {
         // This class is just xUnit plumbing code to apply
         // [CollectionDefinition] and the ICollectionFixture<>

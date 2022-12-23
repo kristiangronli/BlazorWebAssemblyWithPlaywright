@@ -11,7 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using static Duende.IdentityServer.Models.IdentityResources;
 
-namespace XunitPlaywright.IdividualAccount;
+namespace XunitPlaywright.Auth;
 
 public static class InMemAuthConfig
 {

@@ -11,9 +11,9 @@ namespace XunitPlaywright;
 [Collection("MyWebApplicationFactory Collection")]
 public class SecoundTest
 {
-    private readonly MyWebApplicationFactory<AssemblyClassLocator> _factory;
+    private readonly IndividualAuthWebApplicationFactory<AssemblyClassLocator> _factory;
 
-	public SecoundTest(MyWebApplicationFactory<AssemblyClassLocator> factory)
+	public SecoundTest(IndividualAuthWebApplicationFactory<AssemblyClassLocator> factory)
 	{
 		_factory = factory;
 	}

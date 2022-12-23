@@ -20,9 +20,9 @@ public class MyTests
 {
     private readonly PlaywrightFixture playwrightFixture;
 
-    private readonly MyWebApplicationFactory<AssemblyClassLocator> _factory;
+    private readonly IndividualAuthWebApplicationFactory<AssemblyClassLocator> _factory;
 
-    public MyTests(MyWebApplicationFactory<AssemblyClassLocator> factory, PlaywrightFixture playwrightFixture)
+    public MyTests(IndividualAuthWebApplicationFactory<AssemblyClassLocator> factory, PlaywrightFixture playwrightFixture)
     {
         this.playwrightFixture = playwrightFixture;
         _factory = factory;
@@ -33,7 +33,7 @@ public class MyTests
     {
         
 
-        using var hostFactory = new MyWebApplicationFactory<AssemblyClassLocator>();
+        using var hostFactory = new IndividualAuthWebApplicationFactory<AssemblyClassLocator>();
         hostFactory.CreateDefaultClient();
 
         var url = hostFactory.url;

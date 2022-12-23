@@ -35,7 +35,8 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
         });
         builder.UseUrls(url);
     }
-
+    
+    
     protected override void ConfigureClient(HttpClient client)
     {
         client.BaseAddress = new Uri("https://localhost:5001");

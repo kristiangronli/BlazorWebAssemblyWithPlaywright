@@ -15,9 +15,9 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         //var connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-IndividualAccount.Server-6763a243-49aa-4cfc-9a9d-376c9b5908b5;Trusted_Connection=True;MultipleActiveResultSets=true";
-        
 
-        
+        //ToDO: Config BlazorWebAssemblyApp1.Client Program.cs
+
 
         builder.ConfigureServices(services =>
         {

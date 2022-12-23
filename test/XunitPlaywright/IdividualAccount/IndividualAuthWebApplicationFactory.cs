@@ -29,7 +29,7 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
             var oldAuthentication = services.SingleOrDefault(d => d.ServiceType == typeof(JwtBearerDefaults));
             services.Remove(oldAuthentication);
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             //services.AddDatabaseDeveloperPageExceptionFilter();
 

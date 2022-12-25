@@ -23,7 +23,7 @@ public class PlayWrightAuthTests
     [Fact]
     public async Task MyFirstAuthenticatedTest()
     {
-        var url = "https://localhost:5001";
+        var url = _factory.url ;
         using var client = _factory.CreateClient();
         var response = await client.GetAsync("/WeatherForecast");
         

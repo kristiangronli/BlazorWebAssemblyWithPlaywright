@@ -27,7 +27,7 @@ public class ServerApiApplicationFactory<TProgram> : WebApplicationFactory<TProg
 
     protected override void ConfigureClient(HttpClient client)
     {
-        client.BaseAddress = new Uri("https://localhost:5001");
+        client.BaseAddress = new Uri(url);
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Test", "test");
     }
 

@@ -27,7 +27,7 @@ public class PlayWrightNoAuthTests
     [Fact]
     public async Task NotAuthenticatedTest()
     {
-        using var hostFactory = new NoAuthWebApplicationFactory<AssemblyClassLocator>();
+        using var hostFactory = _factory;
         hostFactory.CreateDefaultClient();
 
         var url = hostFactory.url;

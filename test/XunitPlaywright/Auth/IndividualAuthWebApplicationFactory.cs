@@ -17,6 +17,7 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
         //var connectionString = "Server=(localdb)\\mssqllocaldb;Database=aspnet-IndividualAccount.Server-6763a243-49aa-4cfc-9a9d-376c9b5908b5;Trusted_Connection=True;MultipleActiveResultSets=true";
 
         //ToDO: Config BlazorWebAssemblyApp1.Client Program.cs
+        
 
 
         builder.ConfigureServices(services =>
@@ -39,7 +40,7 @@ public class IndividualAuthWebApplicationFactory<TProgram> : WebApplicationFacto
     
     protected override void ConfigureClient(HttpClient client)
     {
-        client.BaseAddress = new Uri("https://localhost:5001");
+        client.BaseAddress = new Uri(url);
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Test", "test");
     }
 
